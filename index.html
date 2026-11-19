@@ -511,6 +511,27 @@ html,body{overflow-x:clip}
 @media (max-width:420px){.pass{width:calc(100vw - 64px)!important;margin-left:calc((100vw - 64px)/-2)!important}.zones a{font-size:11px;padding:7px 7px}.card .who{font-size:24px}}
 @media (min-width:1700px){:root{--wrap:min(1440px,100% - 96px)}html{font-size:19px}.pass-zone{zoom:1.2}}
 @media (min-width:600px) and (max-width:900px){.hero h1{max-width:18ch}}
+
+.mbtn{display:none;width:40px;height:40px;border:0;border-radius:50%;background:transparent;cursor:pointer;position:relative;flex:none}
+.mbtn span{position:absolute;left:10px;right:10px;height:2px;border-radius:2px;background:var(--ink);transition:transform .3s cubic-bezier(.2,.75,.25,1),opacity .2s}
+.mbtn span:nth-child(1){top:13px}.mbtn span:nth-child(2){top:19px}.mbtn span:nth-child(3){top:25px}
+html.menu-open .mbtn span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+html.menu-open .mbtn span:nth-child(2){opacity:0}
+html.menu-open .mbtn span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mbtn:focus-visible{outline:2px solid var(--strap)}
+.mm{position:fixed;inset:60px 0 0;z-index:19;background:var(--paper);overflow-y:auto;padding:16px 24px 40px}
+.mm[hidden]{display:none}
+.mm ul{list-style:none;padding:0;margin:0}
+.mm li{border-bottom:1px solid var(--line);opacity:0;transform:translateY(14px)}
+html.menu-open .mm li{animation:mmIn .45s cubic-bezier(.2,.75,.25,1) forwards}
+.mm li:nth-child(2){animation-delay:.03s!important}.mm li:nth-child(3){animation-delay:.06s!important}.mm li:nth-child(4){animation-delay:.09s!important}.mm li:nth-child(5){animation-delay:.12s!important}.mm li:nth-child(6){animation-delay:.15s!important}.mm li:nth-child(7){animation-delay:.18s!important}.mm li:nth-child(8){animation-delay:.21s!important}.mm li:nth-child(9){animation-delay:.24s!important}
+@keyframes mmIn{to{opacity:1;transform:none}}
+.mm a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 4px;text-decoration:none;color:var(--ink);font-family:var(--display);font-weight:700;font-size:22px}
+.mm a:focus-visible{outline:2px solid var(--strap);outline-offset:2px}
+.mm-a{width:20px;height:20px;fill:none;stroke:var(--strap);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transform:scaleX(-1);flex:none}
+html[lang=en] .mm-a{transform:none}
+@media (max-width:900px){.mbtn{display:block}}
+@media (prefers-reduced-motion:reduce){.mm li{opacity:1;transform:none;animation:none!important}}
 </style>
 </head>
 <body>
@@ -528,8 +549,10 @@ html,body{overflow-x:clip}
     <a href="#contact"><span data-l="ar">تواصل</span><span data-l="en">Contact</span></a>
   </nav>
   <button class="lang" id="lang" type="button" aria-label="Switch language"><span data-l="ar">English</span><span data-l="en">عربي</span></button>
+  <button class="mbtn" id="mbtn" type="button" aria-expanded="false" aria-controls="mm" aria-label="القائمة"><span></span><span></span><span></span></button>
 </div><div class="progress" id="prog"></div></header>
 
+<nav class="mm" id="mm" aria-label="القائمة" hidden><ul><li><a href="#home"><span class="mm-t"><span data-l="ar">الرئيسية</span><span data-l="en">Home</span></span><svg class="mm-a" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="#events"><span class="mm-t"><span data-l="ar">إدارة الفعاليات</span><span data-l="en">Event management</span></span><svg class="mm-a" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="#campaigns"><span class="mm-t"><span data-l="ar">الحملات التوعوية</span><span data-l="en">Awareness campaigns</span></span><svg class="mm-a" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="#admin"><span class="mm-t"><span data-l="ar">الدعم الإداري والتوثيق</span><span data-l="en">Admin support</span></span><svg class="mm-a" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="#bd"><span class="mm-t"><span data-l="ar">تطوير الأعمال</span><span data-l="en">Business development</span></span><svg class="mm-a" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="#hackathon"><span class="mm-t"><span data-l="ar">المركز الأول</span><span data-l="en">1st place</span></span><svg class="mm-a" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="#exp"><span class="mm-t"><span data-l="ar">الخبرات والتعليم</span><span data-l="en">Experience and education</span></span><svg class="mm-a" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="#cv"><span class="mm-t"><span data-l="ar">السيرة الذاتية</span><span data-l="en">CV</span></span><svg class="mm-a" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="#contact"><span class="mm-t"><span data-l="ar">تواصل معي</span><span data-l="en">Get in touch</span></span><svg class="mm-a" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li></ul></nav>
 <main id="home">
 <div class="wrap hero">
   <div>
@@ -714,6 +737,15 @@ html,body{overflow-x:clip}
     var o=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;o.disconnect();els.forEach(function(x){var to=+x.dataset.to,t0=null;function f(t){if(!t0)t0=t;var q=Math.min(1,(t-t0)/1400);q=1-Math.pow(1-q,3);x.textContent=Math.round(to*q).toLocaleString('en-US');if(q<1)requestAnimationFrame(f)}requestAnimationFrame(f)})},{threshold:.4});o.observe(ws)})();
 
   if(!RM){p.addEventListener('animationend',function(ev){if(ev.animationName!=='drop')return;var zs=document.querySelectorAll('.zones a');zs.forEach(function(z,i){setTimeout(function(){z.classList.add('hint');setTimeout(function(){z.classList.remove('hint')},1150)},300+i*260)})})}
+
+  (function(){var mb=document.getElementById('mbtn'),mm=document.getElementById('mm'),hr=document.documentElement;
+    function setM(o){if(o){mm.hidden=false;hr.classList.add('menu-open');document.body.style.overflow='hidden'}else{hr.classList.remove('menu-open');mm.hidden=true;document.body.style.overflow=''}mb.setAttribute('aria-expanded',o)}
+    mb.addEventListener('click',function(){setM(mm.hidden)});
+    mm.addEventListener('click',function(e){if(e.target.closest('a'))setM(false)});
+    addEventListener('hashchange',function(){if(!mm.hidden)setM(false)});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){setM(false);mb.focus()}});
+    matchMedia('(min-width:901px)').addEventListener('change',function(e){if(e.matches)setM(false)});
+  })();
   var prog=document.getElementById('prog'),tt=document.getElementById('totop'),ticking=false,lastY=scrollY,vel=0;
   function onScroll(){var y=scrollY,max=document.documentElement.scrollHeight-innerHeight;prog.style.transform='scaleX('+(max>0?y/max:0)+')';tt.classList.toggle('on',y>innerHeight*1.2);
     lastY=y;ticking=false}
